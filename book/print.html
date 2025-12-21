@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html lang="eo" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>lernu-zig</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Enkonduko</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Pretiĝo</a></li><li class="chapter-item expanded "><a href="vortaro.html"><strong aria-hidden="true">3.</strong> Vortaro</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">lernu-zig</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="enkonduko"><a class="header" href="#enkonduko">Enkonduko</a></h1>
+<p>Ĉi-tiu libro estas skribataĵo por lerni programado, specife per la programlingvo Zig, en Esperanto.</p>
+<p>Ĝi ĉefe celas komencantoj je programado, sed taŭgas ankaŭ por iu ajn kiu deziras lerni Zig aŭ lerni
+plu pri programado.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pretiĝo"><a class="header" href="#pretiĝo">Pretiĝo</a></h1>
+<p>Por programi oni bezonas ĉefe du ilojn: kodtajpilon kaj kodtradukilon.</p>
+<p>Ne gravas kiun kodtajpilon vi uzas, ĉar la rolo estas tajpi kodon kiu estas pura teksto, kiel
+<em>.txt</em> datenoj.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vortaro"><a class="header" href="#vortaro">Vortaro</a></h1>
+<div class="table-wrapper"><table><thead><tr><th>Esperanto</th><th>Angla</th><th>Difino</th><th>Ekzemplo</th></tr></thead><tbody>
+<tr><td>amaso</td><td>heap</td><td>Nefiksa parto de la memoro de ekzekutaĵo.</td><td></td></tr>
+<tr><td>apo</td><td>app, application</td><td>Programo aŭ kolekto da kunlaborantaj programoj, rekte uzata de homoj.</td><td></td></tr>
+<tr><td>bajto</td><td>byte</td><td>Plej eta grupo de bitoj kiun la maŝino traktas kiel unuon.</td><td>Kutime okbito</td></tr>
+<tr><td>bito</td><td>bit</td><td>Plej eta ero de informacio. Kutime esprimata per aŭ 0 aŭ 1 nombro.</td><td></td></tr>
+<tr><td>ĉefprocesoro</td><td>Central Process Unit</td><td>Ĉefa procesoro kiu regas la ekzekuton de la vico da instrukcioj.</td><td></td></tr>
+<tr><td>ekzekuto</td><td>execution</td><td>Plenumo de programo.</td><td></td></tr>
+<tr><td>flankaparato</td><td>peripheral</td><td>Aparato por enigi aŭ eligi datenojn de komputilo.</td><td>muso, klavaro, ekrano, ...</td></tr>
+<tr><td>grafikprocesoro</td><td>Graphic Process Unit</td><td>Procesoro kiu regas ekzekuton de instrukcioj specaj por grafikoj</td><td></td></tr>
+<tr><td>instrukcio</td><td>instruction</td><td>Nedividebla simpla tasko kiun la maŝino povas plenumi.</td><td>Adicii du nombrojn, ...</td></tr>
+<tr><td>kodo</td><td>code</td><td>Pura teksto en programlingvo, tradukota al ekzekutebla lingvo.</td><td></td></tr>
+<tr><td>kodredaktilo</td><td>code editor</td><td>Apo por redakti kodon.</td><td>VSCode, Emacs, vim, Helix, ...</td></tr>
+<tr><td>kodtradukilo</td><td>compiler, transpiler</td><td>Apo por traduki kodon el programlingvo al ekzekutebla lingvo.</td><td>Zig, clang, gcc, Go, CPython, PyPy</td></tr>
+<tr><td>komputilo</td><td>computer</td><td>Fizika maŝino kun procesoro kaj skribebla memoro.</td><td>Ofickomputilo, smartfono, ...</td></tr>
+<tr><td>lingvoservilo</td><td>language server</td><td>Programo uzata de kodredaktilo por provizi taŭgan helpon por la kodo.</td><td>ZLS</td></tr>
+<tr><td>operaciumo</td><td>operating system, OS</td><td>Superprogramo kiu regas komputilon, ĝiaj programojn, flankaparatojn, ktp.</td><td>Windows, MacOS, Android...</td></tr>
+<tr><td>procesoro</td><td>processor</td><td>Fizika maŝinero kiu interpretas la instrukciojn.</td><td>ĉefprocesoro, grafikprocesoro</td></tr>
+<tr><td>programo</td><td>programo</td><td>Vico de instrukcioj, kune farante nesimpla ago.</td><td>Apo, sito, operaciumo, ...</td></tr>
+<tr><td>programlingvo</td><td>programming language</td><td>Formala lingvo tajpebla kaj legebla de homo por esprimi programon.</td><td>Zig, C, Go, Java, Python, ...</td></tr>
+<tr><td>stako</td><td>stack</td><td>Fiksa parto de la memoro de ekzekutaĵo.</td><td></td></tr>
+</tbody></table>
+</div>
+<h2 id="apo-vs-programo"><a class="header" href="#apo-vs-programo">Apo vs Programo</a></h2>
+<p>La malsameco inter apo kaj programo ne estas bone difinita. Ĝenerale apo rekte interagas kun homaj
+uzantoj. Ne necesas ke programo interagu kun homaj uzantoj, ĝi povas esti uzata de aliaj programoj
+ekzemple.</p>
+<p>Ĉiu apo estas programo aŭ kolekto da programoj, sed ne ĉiu programo estas apo.</p>
+<p>Oni kutime ne kondsideras operaciumoj kiel apoj.</p>
+<h2 id="programlingvo-vs-kodtradukilo"><a class="header" href="#programlingvo-vs-kodtradukilo">Programlingvo vs Kodtradukilo</a></h2>
+<p>Kodtradukiloj kutime tradukas el nur unu programlingvo. Kaj ili foje estas la ununura kodtradukilo
+por ilia programlingvo. Ili tiam ofte nomiĝas same kiel la programlingvo.</p>
+<p>Ekzemploj:</p>
+<ul>
+<li>Zig programlingvo: <code>zig</code>,</li>
+<li>Go programlingvo: <code>go</code>,</li>
+</ul>
+<p>Kontraŭ-ekzemploj:</p>
+<ul>
+<li>C programlingvo: <code>clang</code> , <code>gcc</code>, <code>tcc</code>, ...</li>
+<li>Python programlingvo: <code>CPython</code>, <code>PyPy</code>, ...</li>
+<li>Rust programlingvo: <code>rustc</code></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+[book]
+authors = ["Dok8tavo"]
+language = "eo"
+src = "src"
+title = "lernu-zig"
+
+[output.html.syntax-highlighting]
+enable = true
+highlightjs = true
+
+[output.html.extra]
+"highlight-zig.js" = "theme/zig.js"
+
