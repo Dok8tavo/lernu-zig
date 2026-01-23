@@ -116,8 +116,9 @@ const Enum2 = enum(u8) {
 comptime {
    @import("std").debug.assert(Enum1 != Enum2);
 }
-``` 
+```
 
+Tio devigas la programanton uzi malsamajn tipojn por malsamaj uzoj, eĉ kiam ili hazarde similas.
 
 ### Dokumentaro
 
