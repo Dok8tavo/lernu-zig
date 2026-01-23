@@ -152,8 +152,10 @@ FAROTA: pli bona klarigo pri kiel uzi aŭtoprodukton de dokumentaro.
 
 ## Randkazoj Gravas
 
-Randkazo 
-FAROTA
+Randkazo estas aparta kazo, kiam iu valoro estas ekstrema aŭ valorkombino igas la programkonduton
+speciala.
+
+Plej programlingvoj 
 
 ## Zorgu pri Kodlegado pli ol Kodskribado
 
