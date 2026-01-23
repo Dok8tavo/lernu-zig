@@ -13,6 +13,7 @@ assets_version = "3.1.0" # do not edit: managed by `mdbook-admonish install`
 [output.html]
 additional-css = ["./mdbook-admonish.css"]
 smart-punctuation = true
+cname = "lernu-zig.org"
 
 [output.html.fold]
 enable = true
