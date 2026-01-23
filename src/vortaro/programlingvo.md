@@ -7,7 +7,7 @@ ANCHOR:ang
 ANCHOR_END:ang
 
 ANCHOR:dif
-Formala homlegebla lingvo kiu priskribas [programojn](_index.md#programo).
+Formala homlegebla lingvo kiu pli-malpli formale priskribas [programojn](_index.md#programo).
 ANCHOR_END:dif
 
 ANCHOR:ekz

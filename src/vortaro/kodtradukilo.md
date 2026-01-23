@@ -7,11 +7,11 @@ ANCHOR:ang
 ANCHOR_END:ang
 
 ANCHOR:dif
-[Apo](_index.md#apo) kiu tradukas [fontkodon](_index.md#fontkodo) en 
-[programlingvo](_index.md#programlingvo) al [ekzekuteblaĵo](_index.md#ekzekuto).
+[Apo](_index.md#apo) kiu tradukas [fontkodon](_index.md#fontkodo) el 
+[programlingvo](_index.md#programlingvo) al [ruleblaĵo](_index.md#rulado).
 ANCHOR_END:dif
 
 ANCHOR:ekz
-Ekzemploj.
+Zig, clang, gcc, rustc, ktp.
 ANCHOR_END:ekz
 

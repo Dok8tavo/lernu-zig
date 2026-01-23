@@ -1,5 +1,5 @@
 ANCHOR:nom
-**ekzekuto**
+**rulado**
 ANCHOR_END:nom
 
 ANCHOR:ang

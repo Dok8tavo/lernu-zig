@@ -7,7 +7,7 @@ ANCHOR:ang
 ANCHOR_END:ang
 
 ANCHOR:dif
-[Ekzekuto](_index.md#ekzekuto) de programo rekte de ĝia [fontkodo](_index.md#fontkodo) en
+[Rulado](_index.md#rulado) de programo rekte de ĝia [fontkodo](_index.md#fontkodo) en
 [programlingvo](_index.md#programlingvo).
 ANCHOR_END:dif
 

@@ -14,10 +14,10 @@ situacio neniam okazas, kaj surbaze de tiu supozo, fari ajnajn ŝanĝojn por ekz
 Se la [programo](_index.md#programo) fakte atingas tian situacion la rezulto estas tute
 nedetermina:
 
-- ĝi povas kraŝi,
+- ĝi povas halti,
 - ĝi povas daŭrigi pli-malpli "ĝuste",
 - ĝi povas produkti arbitrajn rezultojn,
-- ĝi povas agi malsame laŭ la maŝino aŭ tradukilo,
+- ĝi povas agi malsame laŭ la maŝino aŭ [kodtradukilo](_index.md#kodtradukilo),
 - ktp.
 ANCHOR_END:dif
 

@@ -27,15 +27,6 @@ Ekz: {{ #include bajto.md:ekz }}
 Ekz: {{ #include bito.md:ekz }}
 
 
-## {{ #include ekzekuto.md:nom }} { #ekzekuto }
-
-{{ #include ekzekuto.md:ang }}
-
-{{ #include ekzekuto.md:dif }}
-
-Ekz: {{ #include ekzekuto.md:ekz }}
-
-
 ## {{ #include fontkodo.md:nom }} { #fontkodo }
 
 {{ #include fontkodo.md:ang }}
@@ -107,3 +98,11 @@ Ekz: {{ #include programlingvo.md:ekz }}
 
 Ekz: {{ #include programo.md:ekz }}
 
+
+## {{ #include rulado.md:nom }} { #rulado }
+
+{{ #include rulado.md:ang }}
+
+{{ #include rulado.md:dif }}
+
+Ekz: {{ #include rulado.md:ekz }}
