@@ -82,19 +82,31 @@ hljs.registerLanguage(
         "(@[a-zA-Z_][a-zA-Z_0-9]*)";
 
       const STRINGS =
-        /("(([^\n\\]|(\\[^\n]))*)")/;
+        /"(([^\n\\]|(\\[^\n]))*)"/;
 
       const CHARS =
-        /('(([^\n\\]|(\\[^\n]))*)')/;
+        /'(([^\n\\]|(\\[^\n]))*)'/;
 
       const RAW =
         /\\\\[^\n]*/;
 
       const INTEGER =
-        /(\b[0-9][0-9a-zA-Z_+-]*)/;
+        /\W[0-9][\w+-]*[0-9]+\W/;
 
       const FLOAT =
-        "(" + INTEGER + "." + INTEGER + ")";
+        /\W[0-9][\w]*\.[\w+-]*[0-9]+\W/;
+
+      const TYPE =
+        /(\W_*[A-Z][a-zA-Z_0-9]*)\W/;
+
+      const CALLED_FUNCTION =
+        /(\W[_a-z][_\w]*)(?=\()/;
+
+      const FUNCTION =
+        /(\W_*[a-z][a-z_0-9]*[A-Z]+[a-zA-Z_0-9]*)\W/;
+
+      const DECL_LITERAL =
+        /\._*[a-z]+[_a-zA-Z0-9]*\W/;
 
       return {
         name: "Zig",
@@ -102,6 +114,14 @@ hljs.registerLanguage(
         keywords: KEYWORDS,
         contains: [
           e.COMMENT("//", "\n"),
+          {
+            className: "string",
+            begin:
+              "(" + STRINGS.source +
+              "|" + CHARS.source +
+              "|" + RAW.source +
+              ")",
+          },
           {
             className: "built_in",
             begin:
@@ -113,19 +133,31 @@ hljs.registerLanguage(
               ")",
           },
           {
-            className: "string",
-            begin:
-              "(" + STRINGS.source +
-              "|" + CHARS.source +
-              "|" + RAW.source +
-              ")",
-          },
-          {
             className: "literal",
             begin:
               "(" + FLOAT +
               "|" + INTEGER.source +
               ")",
+          },
+          {
+            className: "keyword",
+            begin: "(\W(" + KEYWORDS.keyword.split(" ").join("|") + ")\W)",
+          },
+          {
+            className: "type",
+            begin: TYPE,
+          },
+          {
+            className: "function",
+            begin: CALLED_FUNCTION,
+          },
+          {
+            className: "string",
+            begin: DECL_LITERAL,
+          },
+          {
+            className: "function",
+            begin: FUNCTION,
           },
         ]
       };
