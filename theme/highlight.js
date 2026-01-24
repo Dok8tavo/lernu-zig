@@ -91,7 +91,7 @@ hljs.registerLanguage(
         /\\\\[^\n]*/;
 
       const INTEGER =
-        /([0-9][0-9a-zA-Z_+-]*)/;
+        /(\b[0-9][0-9a-zA-Z_+-]*)/;
 
       const FLOAT =
         "(" + INTEGER + "." + INTEGER + ")";
